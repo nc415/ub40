@@ -1,0 +1,50 @@
+<html>
+<head>
+<body>
+		{% if b1 %}
+
+<h2 align="center"> {{b1.Company_Name}} Profile </h2>
+	<div style="background-color: #d9d9d9; height=30px;"">
+
+		Name: {{b1.BU_Name}} <br>
+		
+
+	{% else%}
+	<strong> There are no Companies in my list. </strong>
+	{% endif %}
+
+			</div>
+
+<form class="form-horizontal", id="page_form", method="POST", action="/home/repo">
+		<div class="form-group">
+			<div class="addpageform">
+				<div class="row">
+					<div class="col-sm-12 col-md-6  col-lg-6 ">
+						{%csrf_token%}
+						{%for hidden in form.hidden_fields%}
+							{{hidden}}
+						{% endfor %}
+						{{field.TotalRevenue}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+  				<label for="comment">Comment:</label>
+  						<textarea class="form-control" rows="5" id="comment">{{field.TotalRevenue}}</textarea>
+		</div>
+
+
+
+							<div class="addpagebutton">
+								<input type="submit" class="btn btn-info" name="submit" value="Create Page"/>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+</body>
+</head>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+<body>
+		{% if p1 %}
+
+<h2 align="center"> {{p1.Company_Name}} Profile </h2>
+	<div style="background-color: #d9d9d9; height=30px;"">
+
+		Name: {{p1.Company_Name}} <br>
+		Region: {{p1.Company_Region}} <br>
+		BUs: {%for i in p1.units.all %}{{i.BU_Name}}, {%endfor%}<br>
+	{% else%}
+	<strong> There are no Companies in my list. </strong>
+	{% endif %}
+
+			</div>
+</body>
+</head>
+</html>

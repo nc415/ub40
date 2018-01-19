@@ -1,0 +1,29 @@
+<html>
+<head>
+<body>
+<h2 align="center"> Companies </h2>
+					<div align="center" style="background-color: #d9d9d9; width: 50%; padding: 20px; align:center; margin-left:25%;">
+					{% if Company %}
+					<table style="width:70%">
+						<tr>
+							<th align="left" style="background-color: #fff">Company</th>
+							<th align="left" style="background-color: #fff">Location</th>
+							<th align="left" style="background-color: #fff"> BUs</th>
+						</tr>
+						<tr line-color="#000">
+							{% for item in Company %}
+							<td style="background-color: #fff"><a href="/repo/{{item.id}}">{{item.Company_Name}}</a></td>
+							<td style="background-color: #fff">{{item.Company_Region}}</td>
+							<td style="background-color: #fff">{%for i in item.units.all %}<a href="/repo/{{item.id}}/{{i.id}}">{{i.BU_Name}}<br>{%endfor%}</td>					
+						</tr>
+						{% endfor %}
+						
+
+					{% else%}
+					<strong> There are no Companies in my list. </strong>
+				{% endif %}
+				
+			</div>
+</body>
+</head>
+</html>
